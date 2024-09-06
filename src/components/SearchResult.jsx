@@ -1,9 +1,24 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AudioPlayer from 'react-audio-player';
+import { addLike, removeLike } from '../redux/actions/favoriteActions';
 
 const SearchResults = () => {
   const searchResults = useSelector((state) => state.searchResults);
+  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
+
+  const isFavorite = (songId) => {
+    return favorites.some(favorite => favorite.id === songId);
+  };
+
+  const toggleFavorite = (song) => {
+    if (isFavorite(song.id)) {
+      dispatch(removeLike(song.id));
+    } else {
+      dispatch(addLike(song));
+    }
+  };
 
   if (!searchResults || searchResults.length === 0) {
     return <div>No results found</div>;
@@ -25,12 +40,22 @@ const SearchResults = () => {
               <div className="card-body" style={{ textAlign: 'center' }}>
                 <h5 className="card-title" style={{ fontSize: '1rem', fontWeight: 'bold' }}>{song.title}</h5>
                 <p className="card-text" style={{ fontSize: '0.875rem' }}>{song.artist.name}</p>
-                {/* Aggiungi il componente AudioPlayer per riprodurre la preview */}
                 <AudioPlayer
-                  src={song.preview}  // Assuming `preview` contains the URL for the audio
+                  src={song.preview}  
                   controls
-                  style={{ width: '100%' }} // Ensures the player fits the card width
+                  style={{ width: '100%' }} 
                 />
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={(e) => {
+                    e.stopPropagation(); 
+                    toggleFavorite(song);
+                  }}
+                >
+                  {isFavorite(song.id) 
+                    ? <i className="bi bi-suit-heart-fill text-danger"></i> 
+                    : <i className="bi bi-suit-heart"></i>}
+                </button>
               </div>
             </div>
           </div>
