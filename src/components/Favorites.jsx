@@ -7,12 +7,13 @@ const Favorites = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites);
 
-  // Funzione per gestire la rimozione dei "Mi piace"
+  
   const handleRemoveLike = (songId) => {
-    dispatch(removeLike(songId));
+    dispatch(removeLike(songId)); 
+    
   };
 
-  // Funzione per gestire il clic su un brano
+  
   const handleSongClick = (song) => {
     dispatch(selectSong(song));
   };
