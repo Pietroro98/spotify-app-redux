@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AudioPlayer from 'react-audio-player';
 import { addLike, removeLike } from '../redux/actions/favoriteActions';
 
+
 const SearchResults = () => {
   const searchResults = useSelector((state) => state.searchResults);
   const favorites = useSelector((state) => state.favorites);
@@ -44,6 +45,7 @@ const SearchResults = () => {
                   src={song.preview}  
                   controls
                   style={{ width: '100%' }} 
+                  volume={0.2}
                 />
                 <button
                   className="btn btn-outline-danger"

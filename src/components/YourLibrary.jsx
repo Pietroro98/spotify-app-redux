@@ -26,6 +26,7 @@ const YourLibrary = () => {
                 src={song.preview}
                 controls
                 style={{ width: "50%" }}
+                volume={0.2}
               />
             </div>
           ))}

@@ -9,6 +9,7 @@ import repeatIcon from '../assets/playerbuttons/repeat.png';
 import AudioPlayer from 'react-audio-player';
 
 
+
 const MediaPlayer = () => {
   const selectedSong = useSelector((state) => state.selectedSong);
 
@@ -26,6 +27,7 @@ const MediaPlayer = () => {
                 src={selectedSong.preview} 
                 autoPlay
                 controls
+                volume={0.2}
               />
             </div>
           )}

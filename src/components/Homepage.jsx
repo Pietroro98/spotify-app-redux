@@ -17,7 +17,7 @@ const Homepage = () => {
           <div className="col-10">
             <section id="rock">
               <h2>Rock Classics</h2>
-              <PlayerSection section="rock" artistName="queen" />
+              <PlayerSection section="rock" artistName="geolier" />
             </section>
           </div>
         </div>
@@ -25,7 +25,7 @@ const Homepage = () => {
           <div className="col-10">
             <section id="pop">
               <h2>Pop Culture</h2>
-              <PlayerSection section="pop" artistName="katyperry" />
+              <PlayerSection section="pop" artistName="sophie and the giants" />
             </section>
           </div>
         </div>
@@ -33,7 +33,7 @@ const Homepage = () => {
           <div className="col-10">
             <section id="hiphop">
               <h2>#HipHop</h2>
-              <PlayerSection section="hipHop" artistName="eminem" />
+              <PlayerSection section="hipHop" artistName="vasco rossi" />
             </section>
           </div>
         </div>
