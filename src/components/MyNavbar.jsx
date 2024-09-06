@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from "../assets/logo/logo.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -27,22 +28,16 @@ const MyNavbar = () => (
           <div className="navbar-nav">
             <ul>
               <li>
-                <a
-                  className="nav-item nav-link d-flex align-items-center"
-                  href="#"
-                >
+                <Link className="nav-item nav-link d-flex align-items-center" to="/">
                   <i className="bi bi-house-door-fill"></i>
                   &nbsp; Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  className="nav-item nav-link d-flex align-items-center"
-                  href="#"
-                >
+                <Link className="nav-item nav-link d-flex align-items-center" to="/your-library">
                   <i className="bi bi-book-fill"></i>
                   &nbsp; Your Library
-                </a>
+                </Link>
               </li>
               <li>
                 <div className="input-group mt-3">

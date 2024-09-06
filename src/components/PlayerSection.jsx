@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectSong } from '../redux/actions/songActions';
 import { addLike, removeLike } from '../redux/actions/favoriteActions';
 import { saveSearchResults } from '../redux/actions/searchActions';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const albumCard = (singleSong, handleSongClick, isFavorite, toggleFavorite) => (
   <div className="col text-center" key={singleSong.id} onClick={() => handleSongClick(singleSong)}>
@@ -11,11 +12,13 @@ const albumCard = (singleSong, handleSongClick, isFavorite, toggleFavorite) => (
       Track: "{singleSong.title}"
       <br /> Artist: {singleSong.artist.name}
     </p>
-    <button onClick={(e) => {
+    <button className="btn btn-outline-danger" onClick={(e) => {
       e.stopPropagation(); 
       toggleFavorite(singleSong);
     }}>
-      {isFavorite ? '❤️' : '♡'}
+      {isFavorite 
+          ? <i className="bi bi-suit-heart-fill text-danger "></i> 
+          : <i className="bi bi-suit-heart"></i>}
     </button>
   </div>
 );
