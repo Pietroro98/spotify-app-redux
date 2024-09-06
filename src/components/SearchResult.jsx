@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AudioPlayer from 'react-audio-player';
 import { addLike, removeLike } from '../redux/actions/favoriteActions';
 
-
 const SearchResults = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const searchResults = useSelector((state) => state.searchResults);
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
@@ -21,6 +21,12 @@ const SearchResults = () => {
     }
   };
 
+
+  const filteredResults = searchResults.filter(song => 
+    song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    song.artist.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (!searchResults || searchResults.length === 0) {
     return <div>No results found</div>;
   }
@@ -28,8 +34,17 @@ const SearchResults = () => {
   return (
     <div>
       <h2>Search Results</h2>
+      <div className="mb-3">
+        <input
+          type="text"
+          placeholder="Search for songs or artists..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="form-control"
+        />
+      </div>
       <div className="row">
-        {searchResults.map(song => (
+        {filteredResults.map(song => (
           <div className="col-md-3 mb-4" key={song.id} style={{ maxWidth: '220px' }}>
             <div className="card" style={{ width: '100%' }}>
               <img 
