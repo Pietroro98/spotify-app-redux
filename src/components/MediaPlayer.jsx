@@ -8,6 +8,7 @@ import nextIcon from '../assets/playerbuttons/next.png';
 import repeatIcon from '../assets/playerbuttons/repeat.png';
 import AudioPlayer from 'react-audio-player';
 
+
 const MediaPlayer = () => {
   const selectedSong = useSelector((state) => state.selectedSong);
 
@@ -22,7 +23,7 @@ const MediaPlayer = () => {
                 Now Playing: {selectedSong.title} by {selectedSong.artist.name}
               </p>
               <AudioPlayer
-                src={selectedSong.preview} // Assuming `preview` is the audio URL
+                src={selectedSong.preview} 
                 autoPlay
                 controls
               />
