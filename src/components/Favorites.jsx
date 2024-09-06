@@ -10,7 +10,7 @@ const Favorites = () => {
   
   const handleRemoveLike = (songId) => {
     dispatch(removeLike(songId)); 
-    
+
   };
 
   
@@ -21,7 +21,7 @@ const Favorites = () => {
   return (
     <div>
       <h2>Your Favorites</h2>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 py-3">
         {favorites.length > 0 ? (
           favorites.map((song) => (
             <div className="col text-center" key={song.id}>

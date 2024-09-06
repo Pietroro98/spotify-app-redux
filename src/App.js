@@ -8,7 +8,7 @@ import MediaPlayer from "./components/MediaPlayer";
 // import Favorites from "./components/Favorites";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import YourLibrary from './components/YourLibrary';
-
+import SearchResult from "./components/SearchResult";
 
 
 
@@ -16,19 +16,18 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-    <div className="container-fluid">
-      <div className="row">
-      <MyNavbar />
-      <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route path="/your-library" element={<YourLibrary />} />
-      
-      </Routes>
+      <div className="container-fluid">
+        <div className="row">
+          <MyNavbar />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/your-library" element={<YourLibrary />} />
+            <Route path="/search-results" element={<SearchResult />} />
+          </Routes>
+        </div>
       </div>
-      {/* <Favorites /> */}
+      <MediaPlayer />
     </div>
-    <MediaPlayer />
-  </div>
   </BrowserRouter>
   );
 }
